@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <center><strong><legend>Photo Details</legend></strong></center>
+
+    <form action="photo-response.html" method="post">
+
+      <div>
+        <p><label for="title">Title</label></p>
+        <input type="title" id="title" name="title"  rows="8" cols="80" required placeholder="Enter your title">
+      </div>
+
+    <div>
+        <p><label for="desc">Description</label></p>
+        <textarea id="desc" name="user_desc" rows="8" cols="80 "required placeholder="Enter your decription"></textarea>
+    </div>
+
+      <p>
+        <input type="file" name="file" id="file" accept="image/*" multiple>
+      </p>
+
+
+    <p><label for="Copyright"> Copyright?</label></p>
+    <p><input type="radio" name="type" id="type_1" value="reserved"> <label for="type_1">All rights reserved</label></p>
+    <p><input type="radio" name="type" id="type_2" value="creative"> <label for="type_2">Creative commons</label></p>
+
+    <p><label for="Date_Time">Date and time taken :</label></p>
+    <input type="date" name="myDate" min="2018-01-01" max="2018-12-31" id="myDate">
+
+
+
+    <p><label for="rate">Rate this photo :</label></p>
+    <input type="number" name="rate" id="rate" min="1" max="10" step="1">
+
+  <br><br>
+  <button type="submit">Submit</button>
+  <button type="reset">Reset</button>
+</br></br>
+
+  </body>
+</html>
