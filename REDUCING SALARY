@@ -1,0 +1,61 @@
+Sohieb started working at Hogwarts School of Witchcraft and Wizardry. Ibrahim The school headmaster told him that he will get a positive integer salary equals X, then Ibrahim made a spell that erase the right most digit of X every month.
+
+For example if he gets X = 1234 in the first month, the second month he will get X = 123 and in the third month X = 12, and so on.
+
+After a few months Sohieb realized that he didn't get a salary because X became Zero.
+
+Sohieb now has a total money equals Y which is his salary for all the previous months, but he can't remember what was the value of X. Could you help him by telling him what value of X makes his total money equals Y.
+
+Input
+The only line of the input contains a single integer Y (1 ≤ Y ≤ 1018)
+
+Output
+Print single integer — the value of X which makes the total money equals Y.
+
+If there is many values of X holds print "ManySolutions" (without the quotes).
+
+If there is no X makes the total money equal Y print -1.
+
+Examples :
+input
+1
+output
+1
+
+
+import java.util.Scanner;
+public class Salary {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int totalSalary = input.nextInt();
+        int initialSalary = initialSalary(totalSalary);
+        System.out.println(initialSalary);
+    }
+    private static int totalSalary(int initialSalary) {
+        int salary = initialSalary;
+        int sum = 0;
+        while (salary > 0) {
+            sum += salary;
+            salary /= 10;
+        }
+        return sum;
+    }
+    private static int initialSalary(int totalSalary) {
+        return binarySearch(totalSalary, 0, totalSalary + 1);
+    }
+    private static int binarySearch(int totalSalary, int low, int high) {
+        if (low >= high) {
+            return -1;
+        } else {
+            int mid = (low + high)/2;
+            int total = totalSalary(mid);
+            if (total == totalSalary) {
+                return mid;
+            } else if (total > totalSalary) {
+                return binarySearch(totalSalary, low, mid);
+            } else {
+                return binarySearch(totalSalary, mid + 1, high);
+            }
+        }
+    }
+}
