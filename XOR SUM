@@ -1,0 +1,50 @@
+XOR SUM
+You're given an array a with n elements.
+
+Compute the xor sum of the elements that appear an odd number of times in the array a.
+
+Input
+The first line contains number n (1 ≤ n ≤ 3000000). The second line of the input contains n numbers, representing the array a. All elements of a are between 0 and 109
+
+Output
+The only line of the output contains the answer of the problem.
+
+Examples :
+input
+5
+4 4 3 3 4
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int getOddOccurrence(int a[], int n)
+{
+    for (int i = 0; i < n; i++) {
+         
+        int count = 0;
+         
+        for (int j = 0; j < n; j++)
+        {
+            if (a[i] == a[j])
+                count++;
+        }
+        if (count % 2 != 0)
+            return a[i];
+    }
+    return -1;
+}
+int main()
+    {
+    	int n, l;
+    	int a[] = {0};
+    	cin>>n;
+		for(int i = 0; i < 1; i++)
+		{
+		cin >> a[i];
+		}
+        int x = sizeof(a) / sizeof(a[0]);
+        cout << getOddOccurrence(a, x);
+ 
+        return 0;
+    }
