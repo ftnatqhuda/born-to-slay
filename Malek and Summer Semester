@@ -1,0 +1,62 @@
+Malek registered n courses for the summer semester. Malek has a success rate m, which means he has to succeed at least in ceil(n × m) courses out of the n courses, in order to consider the summer semester as a successful semester. Malek is considered successful in the ith course, if his grade on this course was greater than or equal to 50.
+
+ceil(x) is the smallest integer greater than or equal to x. For example, ceil(0.95) = 1, ceil(4) = 4, and ceil(7.001) = 8.
+
+Malek will give you his grades in the n courses, and your task is to tell him whether the summer semester was a successful semester or not.
+
+Input
+The first line contains an integer T (1 ≤ T ≤ 100), where T is the number of test cases.
+
+The first line of each test case contains an integer n and a real number m (1 ≤ n ≤ 100) (0 < m < 1), where n is the number of courses, and m is the required success rate.
+
+The second line contains n integers a1, a2, ..., an (0 ≤ ai ≤ 100), where ai is the grade of the ith course.
+
+The success rate m is given with exactly two digits after the decimal point.
+
+Output
+For each test case, print a single line containing "YES" (without quotes), if the summer semester was a successful semester for Malek. Otherwise, print "NO" (without quotes).
+
+Example
+input
+2
+5 0.60
+45 46 48 48 50
+5 0.75
+100 99 98 97 100
+output
+NO
+YES
+
+#include<iostream>
+#include<algorithm>
+#include<cstdio>
+#include<cmath>
+#include<cstring>
+using namespace std;
+double a[1000];
+int main()
+{
+	int t, n, x, grade;
+	double m;
+	cin>>t;
+	while(t--)
+	{
+	cin>>n;
+	cin>>m;
+	x = 0;
+	memset(a, 0, sizeof(a));
+	for(int i = 0; i < n; i++)
+	cin>>a[i];
+	grade = ceil ( n * m );
+	for(int i = 0; i < n; i++)
+	{
+		if(a[i]>= 50)
+		x++;
+	}
+	if(x > grade)
+	cout<<"YES";
+	else
+	cout<<"NO"<<endl;
+	}
+	return 0;
+}
