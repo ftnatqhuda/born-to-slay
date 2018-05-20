@@ -1,0 +1,51 @@
+Two days ago, Husam was very busy in preparing for the 2017 JUST Programming contest 2.0. He was creating user name and password for each team, each password he creates must meet the following conditions:
+
+The password contains at least 4 English letters.
+The password contains at least 4 digits.
+The password contains at least 2 symbols. The available symbols are '@', '?', and '!'.
+For some reason, that is not known until now, the last charterer of each password did not appear in Husam's program! There is no time for fixing Husam's bug, but we need the passwords to be prepared at the right time with the conditions that mentioned above.
+Can you help us to complete the passwords before the contest day start!
+
+Input
+The first line contains an integer n (1  ≤  n  ≤  100), where n is the number of teams in the contest.
+
+Then n lines follow, each line contains a password. The length of each password is between 9 and 100 (inclusive).
+
+Output
+Print "The last character must be a letter.", if the last character must be a letter.
+
+Print "The last character must be a digit.", if the last character must be a digit.
+
+Print "The last character must be a symbol.", if the last character must be a symbol.
+
+Print "The last character can be any type.", if the last character can be any type.
+
+input
+3
+10 25
+300 20
+550 100
+output
+8
+250
+275
+
+#include<iostream>
+#include<algorithm>
+#include<cstdio>
+using namespace std;
+int main()
+{
+	int t;
+	cin>>t;
+	
+	while(t--)
+	{
+	int r, y, x;
+	cin>>y;
+	cin>>x;
+	r = y * 100 * 1.0 / (100 + x);
+	cout<<r;
+	}
+	return 0;
+}
